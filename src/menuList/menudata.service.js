@@ -4,9 +4,17 @@
   angular.module('MenuApp')
   .service('MenuDataService', MenuDataService);
 
-  MenuDataService.$inject = ['$q', '$timeout']
-  function MenuDataService($q, $timeout) {
+  MenuDataService.$inject = ['$http', '$timeout']
+  function MenuDataService($http, $timeout) {
     var service = this;
-    
+
+    service.getAllCategories = function() {
+      var response = $http({
+        method: "GET",
+        url: "https://davids-restaurant.herokuapp.com/categories.json"
+      });
+      // console.log(response);
+      return response;
+    };
   }
 })();
