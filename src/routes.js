@@ -29,12 +29,13 @@
 
     .state('itemDetail', {
       url: '/item-detail/{shortname}',
-      templateUrl: 'src/menuList/templates/items.template.html',
+      templateUrl: 'src/menuList/templates/main-items.template.html',
       controller: "ItemDetailController as menuDetail",
       resolve: {
-        itemDetail: ['MenuDataService', function (MenuDataService) {
-          console.log(MenuDataService.getItemsForCategory(shortname));
-          return MenuDataService.getItemsForCategory(shortname);
+        itemsDetail: ['$stateParams', 'MenuDataService',
+        function ($stateParams, MenuDataService) {
+          console.log($stateParams);
+          return MenuDataService.getItemsForCategory($stateParams.shortname);
         }]
       }
     });
