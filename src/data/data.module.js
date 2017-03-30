@@ -3,9 +3,4 @@
 
   angular.module('Data', []);
 
-  angular.module('Data')
-  .config(function() {
-
-  });
-
 })();

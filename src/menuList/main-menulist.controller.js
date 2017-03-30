@@ -8,6 +8,5 @@
   function MainMenuListController(MenuDataService, items) {
     var categoriesList = this;
     categoriesList.items = items.data;
-
   }
 })();
